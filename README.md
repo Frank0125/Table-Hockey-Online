@@ -1,4 +1,4 @@
-Table Hockey with your friends. 
+Table Hockey with your friends. Hopefully this is release.
 
 
 Documentation:
