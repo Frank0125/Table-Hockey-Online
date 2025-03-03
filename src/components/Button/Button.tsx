@@ -11,8 +11,8 @@ export const Button = ({ text, onClick, size }: ButtonProps) => {
     return (
         <a onClick={onClick}>
             <div  
-                className={`${styles.buttonContainer} ${size === 'small' ? styles.buttonSmall : styles.buttonLarge}`}>
-                <p className = {styles.buttonText}>{text}</p>
+                className={`${size === 'small' ? styles.buttonSmall : styles.buttonLarge}`}>
+                <p className = {`${size === 'small' ? styles.buttonTextSmall : styles.buttonTextLarge}`}>{text}</p>
             </div>
         </a>
     )

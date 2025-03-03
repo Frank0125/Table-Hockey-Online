@@ -1,6 +1,8 @@
 .background {
-  background-image: url('./assets/files/Menu_Background.png');
-  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: #000000; /*9082D5*/
+  background-size: cover;
   height: 100%;
   
 }
@@ -10,28 +12,61 @@
   flex-direction: column;
   justify-content: center;
   align-items: left;
-  background-color: blueviolet; /*erase later*/
-  width: 41.09%;
-  height: 1000;
+  background-color: #604CC3;
+  width: 50rem;
+  height: 100%;
   padding-left: 3rem;
+  border-right-style: dotted;
+  border-right-width: 0.15rem;
+  border-right-color: black;
 }
 
 .titleContainer {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  background-color: #FFB200;
-  width: 41.8rem;
+  background-color: var(--color-Title);
+  width: 40rem;
   height: 10rem;
   border-radius: .1rem;
   border-bottom: 0.3rem solid black;
+  border-left: 0.25rem solid black;
+  /* transform: skewX(-20deg); */
 }
 .titleText {
-  font-size: 4.1rem;
-  width: 40rem;
-  color: rgb(0, 0, 0);
+  font-family: "SuperSquadItalic", sans-serif;
+  letter-spacing: .25rem;
+  font-size: 3.4rem;
+  width: 46rem;
+  color: var(--color-text);
   font-weight: bold;
   text-align: center;
   text-decoration: none;
-  margin-top: 2.5rem;
+  margin-top: 2.2rem;
+  transform: skewX(15);
+}
+
+.aboutContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  background-color: var(--color-About);
+  width: 10rem;
+  height: 4rem;
+  border-radius: .6rem;
+  border: 0.2rem solid black;
+  margin-bottom: 0.67rem;
+}
+
+.aboutText {
+  font-family: "SuperSquad", sans-serif;
+  letter-spacing: .2rem;
+  font-size: 1.6rem;
+  width: 10rem;
+  color: var(--color-text);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 0.7rem;
+  margin-left: 0.4rem;
 }

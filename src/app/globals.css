@@ -1,13 +1,28 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-Title: #FFB200;
+  --color-Button: #8FD14F;
+  --color-About: #FF6600;
+  --color-background: #F3F4F6;
+  --color-text: #000000;
 }
-
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-Title: #FFB200;
+    --color-Button: #8FD14F;
+    --color-About: #FF6600;
+    --color-background: #F3F4F6;
+    --color-text: #000000;
   }
+}
+
+@font-face{
+  font-family: "SuperSquad";
+  src: url('./assets/fonts/SuperSquad.ttf') format('truetype');
+}
+
+@font-face{
+  font-family: "SuperSquadItalic";
+  src: url('./assets/fonts/SuperSquadItalic.ttf') format('truetype');
 }
 
 html,
@@ -19,7 +34,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif, "SuperSquad", "SuperSquadItalic";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -38,5 +53,11 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media (max-width: 1420px) {
+  :root {
+    --proportions-Normal: 1, 1, 1;
   }
 }
