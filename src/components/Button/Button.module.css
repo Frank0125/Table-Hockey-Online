@@ -1,0 +1,32 @@
+.buttonLarge {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    background-color: #8FD14F;
+    width: 30rem;
+    height: 10rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    border: 0.4rem solid black;
+}
+.buttonSmall {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    background-color: #8FD14F;
+    width: 10rem;
+    height: 13rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    border: 0.4rem solid black;
+}
+
+.buttonText {
+    font-size: 3rem;
+    width: 20rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 1.5rem;
+}

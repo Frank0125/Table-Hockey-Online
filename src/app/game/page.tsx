@@ -3,29 +3,19 @@
 import styles from "./page.module.css";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/Button/Button";
-
-export default function Home() {
+//IN PROGRESS
+export default function Game() {
   return (
     <div className={styles.background}>
       <div className={styles.container}>
         <div className={styles.titleContainer}>
-          <p className={styles.titleText}>Air Hockey Online</p>
+          <p className={styles.titleText}>Its Time To Play The Game</p>
         </div>
-        <Button
-          text="Play With A Friend"
+        <Button 
+          text="Go To Menu" 
           onClick={() => {
-            redirect("/game");
-            console.log("Friend");
-          }}
-          size="large"
-        />
-        <br />
-        <Button
-          text="Play With A Stranger"
-          onClick={() => {
-            redirect("/game");
-            console.log("Stranger");
-          }}
+            redirect("/");
+          }} 
           size="large"
         />
         <br /><br /><br /><br /><br /><br /><br />

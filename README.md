@@ -1,4 +1,4 @@
-Air Hockey with your friends. Hopefully this is release.
+Air Hockey with your friends.
 
 
 Documentation:
