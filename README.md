@@ -2,7 +2,7 @@
 
 # Air Hockey with your friends.
 
-This project does something (that I think is unique). It includes a server powered by **Socket.IO**.
+This project does something (that I think is unique). It includes a server powered by **Socket.IO** while using **Next.js Typescript**.
 
 ## Setup Instructions
 
