@@ -47,51 +47,53 @@ export default function Home() {
     };
   }, []);
 
-  return (
-    <div className={styles.background}>
-      <div className={styles.container}>
-        <br /><br />
-        <div className={styles.titleContainer}>
-          <p className={styles.titleText}>Air Hockey Online</p>
-            <p>Status: { isConnected ? "connected" : "disconnected" }</p>
-            <p>Messages: { message }</p>
-            <br />
-          <p>Transport: { transport }</p>
+  return isConnected ? (
+    <>    
+      <div className={styles.background}>
+        <div className={styles.container}>
+          <br /><br />
+          <div className={styles.titleContainer}>
+            <p className={styles.titleText}>Air Hockey Online</p>
+          </div>
+          <br /><br /><br /><br /><br />
+          <Button
+            text="Play With A Friend"
+            onClick={() => {
+              redirect("/game");
+              console.log("Friend");
+            }}
+            size="large"
+          />
+          <Button
+            text="Play With A Stranger"
+            onClick={() => {
+              redirect("/game");
+              console.log("Stranger");
+            }}
+            size="large"
+          />
+          <br /><br /><br />
+          <Suspense fallback={<Loading />}>
+              <div className={styles.aboutContainer}>
+                <a href="https://github.com/Frank0125/Air-Hockey-Online">
+                  <p className={styles.aboutText}>About</p>
+                </a>
+              </div>
+          </Suspense>
         </div>
-        <br /><br /><br /><br /><br />
-        <Button
-          text="Play With A Friend"
-          onClick={() => {
-            redirect("/game");
-            console.log("Friend");
-          }}
-          size="large"
+        <Image 
+          className={styles.backgroundImage}
+          src={Background}
+          alt={"Background"}
+          width={840}
+          height={778.5}
+          // layout="responsive"            
         />
-        <Button
-          text="Play With A Stranger"
-          onClick={() => {
-            redirect("/game");
-            console.log("Stranger");
-          }}
-          size="large"
-        />
-        <br /><br /><br />
-        <Suspense fallback={<Loading />}>
-            <div className={styles.aboutContainer}>
-              <a href="https://github.com/Frank0125/Air-Hockey-Online">
-                <p className={styles.aboutText}>About</p>
-              </a>
-            </div>
-        </Suspense>
       </div>
-      <Image 
-        className={styles.backgroundImage}
-        src={Background}
-        alt={"Background"}
-        width={840}
-        height={778.5}
-        // layout="responsive"            
-      />
-    </div>
-  );
+    </> 
+    ) : (
+      <>
+        <Loading />
+      </>
+    );
 }

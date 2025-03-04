@@ -1,12 +1,12 @@
 
 import Image from "next/image";
-import LoadingGif from "../../app/assets/files/Loading.gif";
+import Board from "../../assets/files/Game_Board2.svg";
 
-export const  Loading = () =>{
+export default function GameRoom() {
     return (
         <>
             <Image
-                src={LoadingGif}
+                src={Board}
                 alt="Loading"
                 fill = {true}
             />
