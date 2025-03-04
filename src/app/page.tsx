@@ -1,10 +1,14 @@
 "use client";
 
-import styles from "./page.module.css";
+
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import { Suspense } from "react";
+import styles from "./page.module.css";
 import Background from "./assets/files/Menu_Background.png";
+
 import { Button } from "@/components/Button/Button";
+import { Loading } from "@/components/Loading/Loading";
 
 export default function Home() {
   return (
@@ -32,18 +36,21 @@ export default function Home() {
           size="large"
         />
         <br /><br /><br />
-        <div className={styles.aboutContainer}>
-          <a href="https://github.com/Frank0125/Air-Hockey-Online">
-            <p className={styles.aboutText}>About</p>
-          </a>
-        </div>
+        <Suspense fallback={<Loading />}>
+            <div className={styles.aboutContainer}>
+              <a href="https://github.com/Frank0125/Air-Hockey-Online">
+                <p className={styles.aboutText}>About</p>
+              </a>
+            </div>
+        </Suspense>
       </div>
       <Image 
         className={styles.backgroundImage}
         src={Background}
         alt={"Background"}
         width={840}
-        height={778}
+        height={778.5}
+        // layout="responsive"            
       />
     </div>
   );
