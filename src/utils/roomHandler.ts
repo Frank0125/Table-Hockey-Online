@@ -6,7 +6,7 @@ const createID = (): string => {
 
 
 const roomHandler = (io: Server, socket: Socket, rooms: Room[]) => {
-    const create = (payload: any, callback: (error: any, result: any) => void) => {
+    const create = (payload: any, callback: (error: Error | null, result: string | null) => void) => {
         if (payload.type === "stranger") {
             const index = rooms.findIndex((room: any) => room.vacant == true);
             if (index >= 0) {
@@ -36,14 +36,28 @@ const roomHandler = (io: Server, socket: Socket, rooms: Room[]) => {
         }
     }
 
-    const update = (payload: any) => {
-        const index = rooms.findIndex((room) => room.roomId === payload.roomdId);
+    const update = (roomId: string, playerMessage: string, callback: (error: Error | null, result: string | null) => void) => {
+        const index = rooms.findIndex((room) => room.roomId === roomId);
         if (index >= 0) {
-            rooms[index] = payload;
-            io.to(payload.roomId).emit("room:get", payload);
+            const room = rooms[index];
+            room.players[socket.id].message = playerMessage;
+            io.to(room.roomId).emit("room:get", room);
+            callback(null, "Saved");
+        }
+    }
+
+    const receive = (roomId: string, callback: (error: Error | null, result: string | null) => void) => {
+        const index = rooms.findIndex((room) => room.roomId === roomId);
+        if (index >= 0) {
+            const room = rooms[index];
+            const data = room.players[socket.id].message;
+            io.to(room.roomId).emit("room:get", room);
+            callback(null, data);
         }
     }
     socket.on("room:create", create);
+    socket.on("room:update", update)
+    socket.on("room:receive", receive)
 }
 
 export default roomHandler;
