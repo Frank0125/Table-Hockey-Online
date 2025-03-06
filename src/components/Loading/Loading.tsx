@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import LoadingGif from "../../app/assets/files/Loading.gif";
 

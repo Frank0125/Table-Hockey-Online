@@ -1,5 +1,6 @@
 import { Room } from '@/interfaces/Room';
 import { Server, Socket } from 'socket.io';
+
 const createID = (): string => {
     return crypto.randomUUID(); // Generates a unique ID
 };
@@ -18,21 +19,25 @@ const roomHandler = (io: Server, socket: Socket, rooms: Room[]) => {
                 socket.join(room.roomId);
                 io.to(room.roomId).emit("room:get", room);
                 callback(null, room.roomId);
-            } else {
-                const room = {
-                    roomId: createID(),
-                    players: {
-                        [socket.id]: {
-                            message: null
-                        },
+            } 
+
+            const room = {
+                roomId: createID(),
+                players: {
+                    [socket.id]: {
+                        message:  null
                     },
-                    vacant: true
-                }
-                rooms.push(room);
-                socket.join(room.roomId);
-                io.to(room.roomId).emit("room:get", room);
-                callback(null, room.roomId);
+                },
+                vacant: true,
+                chat:  null
             }
+
+            rooms.push(room);
+            socket.join(room.roomId);
+            io.to(room.roomId).emit("room:get", room);
+            callback(null, room.roomId);
+        } else {
+            callback(new Error("Room not found"), null);
         }
     }
 
@@ -41,8 +46,12 @@ const roomHandler = (io: Server, socket: Socket, rooms: Room[]) => {
         if (index >= 0) {
             const room = rooms[index];
             room.players[socket.id].message = playerMessage;
+            //chat
+            room.chat = playerMessage;
             io.to(room.roomId).emit("room:get", room);
             callback(null, "Saved");
+        } else {
+            callback(new Error("Room not found"), null);
         }
     }
 
@@ -50,9 +59,13 @@ const roomHandler = (io: Server, socket: Socket, rooms: Room[]) => {
         const index = rooms.findIndex((room) => room.roomId === roomId);
         if (index >= 0) {
             const room = rooms[index];
-            const data = room.players[socket.id].message;
+            //const data = room.players[socket.id].message;
+            //chat
+            const data = room.chat;
             io.to(room.roomId).emit("room:get", room);
             callback(null, data);
+        } else {
+            callback(new Error("Room not found"), null);
         }
     }
     socket.on("room:create", create);

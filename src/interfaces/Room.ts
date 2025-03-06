@@ -6,4 +6,5 @@ export interface Room {
         };
     };
     vacant: boolean;
+    chat: string | null;
 }

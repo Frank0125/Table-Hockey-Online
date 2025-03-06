@@ -13,3 +13,27 @@
   padding-left: 3rem;
   background-color: antiquewhite;
 }
+
+.titleText {
+  font-size: 3rem;
+  font-family: "SuperSquadItalic", sans-serif;
+  justify-self: center;
+  align-self: start;
+}
+
+.titleContainer {
+  display: flex;
+  flex-wrap:  wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 11rem;
+  height: 5rem;
+  background-color: var(--color-Title);
+}
+
+.messageText {
+  padding-top: 2rem;
+  font-size: 2rem;
+  color: var(--color-About);
+}

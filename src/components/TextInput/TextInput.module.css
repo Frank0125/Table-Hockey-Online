@@ -1,0 +1,15 @@
+.container {
+    width: 5rem;
+    height: 3rem;
+    /* tempcolor */
+    background-color: burlywood; 
+}
+
+.textInput {
+    font-size: 1.5rem;
+    color: var(--color-text);
+    width: 5rem;
+    height: 3rem;
+    /* tempcolor */
+    background-color: burlywood; 
+}
