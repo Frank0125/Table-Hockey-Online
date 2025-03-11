@@ -25,7 +25,7 @@ export default function GameRoom( { params } : { params: Promise<{ id: string }>
             })
         }
         getRoom();
-    }, [message]);
+    }, []);
 
     function sendMessage() {
         socket.emit("room:update",  id, value, (error : Error, result : string) => {
@@ -56,7 +56,7 @@ export default function GameRoom( { params } : { params: Promise<{ id: string }>
             <div className={styles.container}>
                 <div className = {styles.titleContainer}>
                     <p className = {styles.titleText}> Player Chat:</p>
-                    <h2 className = {styles.messageText}>{message}</h2>
+                    <h2 className = {styles.messageText}>{room ? room.chat : "nada"}</h2>
                     <p>One message at a time</p>
                     ||{ room ? room.chat : "nada" }||
                 </div>
