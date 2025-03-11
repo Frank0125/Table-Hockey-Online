@@ -1,4 +1,4 @@
-Air Hockey with your friends.
+Air Hockey with your friends or strangers!.
 
 
 Documentation:
