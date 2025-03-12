@@ -16,25 +16,6 @@
   background-color: antiquewhite;
 }
 
-.titleText {
-  font-size: 3rem;
-  font-family: "SuperSquadItalic", sans-serif;
-  justify-self: center;
-  margin-top: 2rem;
-  align-self: start;
-  color: var(--color-text);
-}
-
-.titleContainer {
-  display: flex;
-  justify-content: center;
-  background-color: var(--color-Title);
-  width: 41.8rem;
-  height: 10rem;
-  border-radius: .1rem;
-  border-bottom: 0.3rem solid black;
-}
-
 .messageText {
   padding-top: 2rem;
   font-size: 2rem;

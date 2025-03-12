@@ -10,6 +10,7 @@ import Background from "./assets/files/Menu_Background.png";
 
 import { Button } from "@/components/Button/Button";
 import { Loading } from "@/components/Loading/Loading";
+import { Title } from "@/components/Title/Title";
 
 export default function Home() {
   const [isConnected, setIsConnected] = useState(false);
@@ -41,9 +42,9 @@ export default function Home() {
       <div className={styles.background}>
         <div className={styles.container}>
           <br /><br />
-          <div className={styles.titleContainer}>
-            <p className={styles.titleText}>Air Hockey Online</p>
-          </div>
+          <Title
+            text = "Air Hockey Online"
+          />
           <br /><br /><br /><br /><br />
           <Button
             text="Play With A Friend"

@@ -3,15 +3,17 @@
 import styles from "./page.module.css";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/Button/Button";
+import { Title } from "@/components/Title/Title";
 //IN PROGRESS
 export default function Friend() {
 
   return (
     <div className={styles.background}>
       <div className={styles.container}>
-        <div className={styles.titleContainer}>
-          <p className={styles.titleText}>IN PROGRESS</p>
-        </div>
+        <Title
+          text = "Play with your Friend!!"
+          fontSize = "2.4rem"
+        />
         <Button 
           text="Go To Menu" 
           onClick={() => {

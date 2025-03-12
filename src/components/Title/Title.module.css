@@ -1,0 +1,23 @@
+.titleContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    background-color: var(--color-Title);
+    width: 40rem;
+    height: 10rem;
+    border-radius: .1rem;
+    border-bottom: 0.3rem solid black;
+    border-left: 0.25rem solid black;
+  }
+  .titleText {
+    font-family: "SuperSquadItalic", sans-serif;
+    letter-spacing: .25rem;
+    font-size: 3.4rem;
+    width: 46rem;
+    color: var(--color-text);
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2.2rem;
+    transform: skewX(15);
+  }

@@ -8,6 +8,7 @@ import styles from "./page.module.css";
 
 import { Button } from "@/components/Button/Button";
 import { TextInput } from "@/components/TextInput/TextInput"
+import { Title } from "@/components/Title/Title";
 import { Room } from "@/interfaces/Room"
 
 export default function GameRoom( { params } : { params: Promise<{ id: string }> } ) {
@@ -48,9 +49,9 @@ export default function GameRoom( { params } : { params: Promise<{ id: string }>
         <>
             <div className={styles.background}>
                 <br />
-                <div className = {styles.titleContainer}>
-                    <p className = {styles.titleText}> Player Chat:</p>
-                </div>
+                <Title
+                    text = "Room Chat:"
+                />
                 <div className = {styles.chatContainer}>
                     <h2 className = {styles.messageText}>{room ? room.chat : "nada"}</h2>
                     <p className = {styles.disclaimerText}>One message at a time</p>
