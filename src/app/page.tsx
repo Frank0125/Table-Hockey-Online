@@ -13,8 +13,6 @@ import { Loading } from "@/components/Loading/Loading";
 
 export default function Home() {
   const [isConnected, setIsConnected] = useState(false);
-  const [transport, setTransport] = useState("N/A");
-  const [message, setMessage] = useState("awaiting message");
 
   useEffect(() => {
     if (socket.connected) {
@@ -23,23 +21,14 @@ export default function Home() {
 
     function onConnect() {
       setIsConnected(true);
-      setTransport(socket.io.engine.transport.name);
-
-      socket.io.engine.on("upgrade", (transport) => {
-        setTransport(transport.name);
-      });
     }
 
     function onDisconnect() {
       setIsConnected(false);
-      setTransport("N/A");
     }
 
     socket.on("connect", onConnect);
     socket.on("disconnect", onDisconnect);
-    socket.on("hello", (arg) => {
-      setMessage("Hello!");
-    });
 
     return () => {
       socket.off("connect", onConnect);
@@ -59,16 +48,14 @@ export default function Home() {
           <Button
             text="Play With A Friend"
             onClick={() => {
-              redirect("/game");
-              console.log("Friend");
+              redirect("/game/friend");
             }}
             size="large"
           />
           <Button
             text="Play With A Stranger"
             onClick={() => {
-              redirect("/game");
-              console.log("Stranger");
+              redirect("/game/stranger");
             }}
             size="large"
           />
@@ -86,8 +73,7 @@ export default function Home() {
           src={Background}
           alt={"Background"}
           width={840}
-          height={778.5}
-          // layout="responsive"            
+          height={778.5}          
         />
       </div>
     </> 

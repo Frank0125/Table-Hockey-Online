@@ -1,13 +1,12 @@
 "use client";
 
 import styles from "./page.module.css";
-import { socket } from "../../socket";
-import { useEffect, useState } from "react";
+import { socket } from "../../../socket";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/Button/Button";
 //IN PROGRESS
-export default function Game() {
-  function joinRoom() {
+export default function Stranger() {
+  function createStrangerRoom() {
     socket.emit("room:create", { type: "stranger"}, (error : Error, roomId : string) => {
       if (error) {
         console.error(error);
@@ -24,7 +23,7 @@ export default function Game() {
     <div className={styles.background}>
       <div className={styles.container}>
         <div className={styles.titleContainer}>
-          <p className={styles.titleText}>Its Time To Play The Game</p>
+          <p className={styles.titleText}>Play with a Stranger!!</p>
         </div>
         <Button 
           text="Go To Menu" 
@@ -36,7 +35,7 @@ export default function Game() {
         <Button 
           text="Join Room" 
           onClick={() => {
-            joinRoom();
+            createStrangerRoom();
           }} 
           size="large"
         />

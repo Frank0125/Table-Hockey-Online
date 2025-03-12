@@ -4,19 +4,16 @@ import { socket } from "../../../socket";
 import { useEffect, useState, use} from "react";
 import Image from "next/image";
 import Board from "../../assets/files/Game_Board2.svg";
-import styles from "../page.module.css";
+import styles from "./page.module.css";
 
 import { Button } from "@/components/Button/Button";
 import { TextInput } from "@/components/TextInput/TextInput"
 import { Room } from "@/interfaces/Room"
 
 export default function GameRoom( { params } : { params: Promise<{ id: string }> } ) {
-    const [message, setMessage] = useState("Nothing Received");
     const [value, setValue] = useState("Mensaje por Defecto");
     const [room, setRoom] = useState<Room | null>(null)
     const {id} = use(params);
-
-    
 
     useEffect(() => {
         function getRoom(){
@@ -42,10 +39,6 @@ export default function GameRoom( { params } : { params: Promise<{ id: string }>
             if(error){
                 alert("There has been an error" + error)
             }
-
-            if(result){
-                setMessage(result);
-            }
             console.log("receiveD?");
         })
     }
@@ -53,12 +46,14 @@ export default function GameRoom( { params } : { params: Promise<{ id: string }>
 
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.background}>
+                <br />
                 <div className = {styles.titleContainer}>
                     <p className = {styles.titleText}> Player Chat:</p>
+                </div>
+                <div className = {styles.chatContainer}>
                     <h2 className = {styles.messageText}>{room ? room.chat : "nada"}</h2>
-                    <p>One message at a time</p>
-                    ||{ room ? room.chat : "nada" }||
+                    <p className = {styles.disclaimerText}>One message at a time</p>
                 </div>
                 <TextInput
                     onChange={(e) => setValue(e.target.value)}

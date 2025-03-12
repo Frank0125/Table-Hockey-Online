@@ -5,8 +5,8 @@ import roomHandler from "./src/utils/roomHandler";
 import { Room } from "@/interfaces/Room";
 
 const dev = process.env.NODE_ENV !== "production";
-const hostname = "localhost";
-const port = 3000;
+const hostname = process.env.HOSTNAME ? process.env.HOSTNAME : "localhost";
+const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 const app = next({ dev, hostname, port });
 const handler = app.getRequestHandler();
