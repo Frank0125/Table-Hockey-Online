@@ -5,7 +5,6 @@ const createID = (): string => {
     return crypto.randomUUID(); // Generates a unique ID
 };
 
-
 const roomHandler = (io: Server, socket: Socket, rooms: Room[]) => {
     const create = (payload: any, callback: (error: Error | null, result: string | null) => void) => {
         if (payload.type === "stranger") {
